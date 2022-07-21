@@ -26,12 +26,7 @@ return new class extends Migration
             $table->String('Motif_sortie');
             $table->String('Resultat_sortie');
             $table->Date('Date_Deces');
-            $table->String('Motif_Deces');
-
-        
-            $table->timestamps();
-            
-
+            $table->String('Motif_Deces');            
             $table->timestamps();
         });
     }

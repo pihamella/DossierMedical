@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('_consultation', function (Blueprint $table) {
+        Schema::create('consultation', function (Blueprint $table) {
             $table->id();
             $table->String('Type_Consultation');
             $table->Date('Date_consultation');
             $table->String('Prix_consultation');
-            $table->timestamps();
             $table->foreign ('Medecin_id')->reference('id')->on ('Medecin');
             $table->foreign ('Prescription_id')->reference('id')->on ('Prescription');
+            $table->timestamps();
+
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_consultation');
+        Schema::dropIfExists('consultation');
     }
 };

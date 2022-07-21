@@ -24,9 +24,10 @@ return new class extends Migration
             $table->String('Traitement');
             $table->String('Evolution');
             $table->String('Resultat');
-            $table->timestamps();
             $table->foreign ('Patient_id')->reference('id')->on ('Patient');
             $table->foreign ('Medecin_id')->reference('id')->on ('Medecin');
+            $table->timestamps();
+
         });
     }
 

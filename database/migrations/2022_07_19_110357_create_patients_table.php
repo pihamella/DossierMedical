@@ -29,8 +29,9 @@ return new class extends Migration
             $table->String('Nom_Mère');
             $table->String('NomP_a_prevenir');
             $table->String('TelP_a_prevenir');
-            $table->timestamps();
             $table->foreign ('secretaire_id')->reference('id')->on ('secretaire');
+            $table->timestamps();
+
 
         });
     }
