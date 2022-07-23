@@ -19,7 +19,6 @@ return new class extends Migration
             $table->Date('Date_consultation');
             $table->String('Prix_consultation');
             $table->foreign ('Medecin_id')->reference('id')->on ('Medecin');
-            $table->foreign ('Prescription_id')->reference('id')->on ('Prescription');
             $table->timestamps();
 
         });
