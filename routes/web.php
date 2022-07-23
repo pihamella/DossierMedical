@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('layouts.layout_design.blade');
+// });
+
+Route::match(['get', 'post'], '/', 'App\Http\Controllers\FrontController@index');
+
