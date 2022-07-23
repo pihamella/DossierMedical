@@ -18,6 +18,7 @@ return new class extends Migration
             $table->Date('DatePrescrition');
             $table->String('Nom_Patient');
             $table->String('Prenom_Patient');
+            $table->foreign ('Medecin_id')->reference('id')->on('Medecin');
             $table->String('Note');
             $table->timestamps();
         });

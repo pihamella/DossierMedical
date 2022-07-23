@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->String('Reference');
             $table->String('Nom_patient');
             $table->String('Prenom_patient');
             $table->Date('Date_Naissance');

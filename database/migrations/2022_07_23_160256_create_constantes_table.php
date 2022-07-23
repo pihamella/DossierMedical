@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('consultation', function (Blueprint $table) {
+        Schema::create('constantes', function (Blueprint $table) {
             $table->id();
-            $table->String('Type_Consultation');
-            $table->Date('Date_consultation');
-            $table->String('Prix_consultation');
-            $table->foreign ('Type_consultationId')->reference('id')->on('typeConsultation');
-            $table->foreign ('Medecin_id')->reference('id')->on('medecin');
+            $table->String('poids');
+            $table->Date('temperature');
+            $table->String('taille');
+            $table->String('tension');
+            $table->String('note');
+            $table->foreign ('secretaireId')->reference('id')->on('secretaire');
             $table->timestamps();
-
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consultation');
+        Schema::dropIfExists('constantes');
     }
 };
