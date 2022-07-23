@@ -20,9 +20,6 @@ return new class extends Migration
             $table->String('TelMedecin');
             $table->String('Specialite');
             $table->String('Service');
-           
-
-
             $table->timestamps();
         });
     }

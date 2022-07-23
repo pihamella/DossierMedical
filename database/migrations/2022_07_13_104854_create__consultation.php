@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->String('Type_Consultation');
             $table->Date('Date_consultation');
-            $table->String('Prix_consultation');
-            $table->foreign ('Medecin_id')->reference('id')->on ('Medecin');
+            $table->double('Prix_consultation');
+            $table->unsignedbigInteger('Medecin_id');
+            $table->foreign('Medecin_id')->references('id')->on('medecins');
+            $table->unsignedbigInteger('TypeConsultation_id');
+            $table->foreign ('TypeConsultation_id')->references('id')->on('typeConsultation');
             $table->timestamps();
 
         });

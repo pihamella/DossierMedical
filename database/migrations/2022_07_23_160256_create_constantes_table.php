@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('secretaire', function (Blueprint $table) {
+        Schema::create('constantes', function (Blueprint $table) {
             $table->id();
-            $table->string('nomSecretaire');
-            $table->string('prenomSecretaire');
-            $table->string ('TelSecretaire');
+            $table->String('poids');
+            $table->Date('temperature');
+            $table->String('taille');
+            $table->String('tension');
+            $table->String('note');
+            $table->unsignedbigInteger('secretaireId');
+            $table->foreign ('secretaireId')->references('id')->on('secretaire');
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secretaire');
+        Schema::dropIfExists('constantes');
     }
 };

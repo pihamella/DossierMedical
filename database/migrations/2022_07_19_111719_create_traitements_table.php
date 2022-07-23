@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->Date('Debut_traitement');
             $table->String('Fin_traitement');
-            $table->String('Prix');
-            $table->foreign ('Patient_id')->reference('id')->on ('Patient');
-            $table->foreign ('Hospitalisation_id')->reference('id')->on ('Hospitalisation');
+            $table->double('Prix');
+            $table->unsignedbigInteger('Patient_id');
+            $table->foreign ('Patient_id')->references('id')->on ('patients');
             $table->timestamps();
 
         });

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->String('Reference');
             $table->String('Nom_patient');
             $table->String('Prenom_patient');
             $table->Date('Date_Naissance');
@@ -29,7 +30,8 @@ return new class extends Migration
             $table->String('Nom_Mère');
             $table->String('NomP_a_prevenir');
             $table->String('TelP_a_prevenir');
-            $table->foreign ('secretaire_id')->reference('id')->on ('secretaire');
+            $table->unsignedbigInteger('secretaire_id');
+            $table->foreign ('secretaire_id')->references('id')->on ('secretaire');
             $table->timestamps();
 
 

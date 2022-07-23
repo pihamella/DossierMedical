@@ -19,7 +19,8 @@ return new class extends Migration
             $table->String('Nom_Patient');
             $table->String('Prenom_Patient');
             $table->String('Note');
-            $table->foreign ('Medecin_id')->reference('id')->on ('Medecin');
+            $table->unsignedbigInteger('Medecin_id');
+            $table->foreign ('Medecin_id')->references('id')->on('medecins');
             $table->timestamps();
         });
     }
