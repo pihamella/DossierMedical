@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('analyses', function (Blueprint $table) {
             $table->id();
+            $table->String('Type analyse');
             $table->String('Désignation');
             $table->String('Resultat');
             $table->String('Image');

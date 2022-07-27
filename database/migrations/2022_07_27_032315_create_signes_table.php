@@ -13,17 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('traitements', function (Blueprint $table) {
+        Schema::create('signes', function (Blueprint $table) {
             $table->id();
-            $table->Date('Debut_traitement');
-            $table->Date('Fin_traitement');
-            $table->double('Prix');
-            $table->String('Note');
-            $table->Date('Dte_du_prochain_RDV');
-            $table->unsignedbigInteger('Patient_id');
-            $table->foreign ('Patient_id')->references('id')->on ('patients');
+            $table->String('Etat_general');
+            $table->String('Etat_de_Concience');
+            $table->String('Etat_de_conjontive');
+            $table->String('OMI');
+            $table->String('Etat_physique');
+            $table->String('Diagnostic');
             $table->timestamps();
-
         });
     }
 
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('traitements');
+        Schema::dropIfExists('signes');
     }
 };
