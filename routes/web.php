@@ -22,6 +22,7 @@ Route::match(['get', 'post'], '404', 'App\Http\Controllers\FrontController@error
 Route::match(['get', 'post'], '500', 'App\Http\Controllers\FrontController@error500');
 
 Route::match(['get', 'post'], '/', 'App\Http\Controllers\FrontController@login');
+Route::match(['get', 'post'], '/logout', 'App\Http\Controllers\FrontController@logout');
 Route::match(['get', 'post'], 'admin/new-user', 'App\Http\Controllers\FrontController@register');
 Route::match(['get', 'post'], '/admin/dashboard', 'App\Http\Controllers\FrontController@index');
 Route::match(['get', 'post'], 'admin/all-admin', 'App\Http\Controllers\FrontController@viewAdmins');

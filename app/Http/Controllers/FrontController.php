@@ -94,5 +94,12 @@ class FrontController extends Controller
         }
 
     }
+
+    public function logout()
+    {
+       
+        Session::flush();
+        return view('/');
+    }
  
 }
