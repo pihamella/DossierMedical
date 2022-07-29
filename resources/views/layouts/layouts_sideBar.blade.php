@@ -21,16 +21,28 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Constante</span>
+              <i class="ti-panel menu-icon"></i>
+              <span class="menu-title">Consultation</span>
+              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
-              <i class="ti-panel menu-icon"></i>
-              <span class="menu-title">Consultation</span>
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Constante</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
+              <i class="ti-panel menu-icon"></i>
+              <span class="menu-title">Consultation</span>
+              <span class="menu-title">Signes</span>
+              <i class="menu-arrow"></i>
+            </a>
+          </li>
+
+         
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="ti-menu-alt menu-icon"></i>

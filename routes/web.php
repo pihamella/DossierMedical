@@ -27,5 +27,37 @@ Route::match(['get', 'post'], '/admin/dashboard', 'App\Http\Controllers\FrontCon
 Route::match(['get', 'post'], 'admin/all-admin', 'App\Http\Controllers\FrontController@viewAdmins');
 
 
+Route::get ('/inscription', function(){
 
+return view ('welcome');
+});
 
+Route::get ('/patient', function(){
+
+    return view ('patient');
+    });
+
+    Route::get ('/analyse', function(){
+
+        return view ('analyse');
+        });
+
+     Route::get ('/constante', function(){
+
+            return view ('constante');
+            });
+
+    Route::get ('/consultation', function(){
+
+                return view ('consultation');
+                });
+                Route::get ('/signe', function(){
+
+                    return view ('signe');
+                    });
+                    Route::get ('/traitement', function(){
+
+                        return view ('traitement');
+                        });
+                    
+    
