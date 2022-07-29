@@ -23,49 +23,42 @@
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="icon-columns menu-icon"></i>
               <span class="menu-title">Constante</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="ti-panel menu-icon"></i>
               <span class="menu-title">Consultation</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="ti-menu-alt menu-icon"></i>
               <span class="menu-title">Analyses</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="icon-columns menu-icon"></i>
               <span class="menu-title">Traitements</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="ti-stats-down menu-icon"></i>
               <span class="menu-title">Hospitalisations</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="ti-shine menu-icon"></i>
               <span class="menu-title">Prescriptions</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="ti-folder menu-icon"></i>
               <span class="menu-title">Dossier médicale</span>
-              <i class="menu-arrow"></i>
             </a>
           </li>
 
@@ -77,8 +70,8 @@
             </a>
             <div class="collapse" id="settings">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Tous les utilisateurs</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Ajouter un utilisateur</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/all-admin')}}">Tous les utilisateurs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/new-user')}}">Ajouter un utilisateur</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Roles</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Type de consultation</a></li>
               </ul>
