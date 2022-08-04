@@ -14,25 +14,14 @@ class FrontController extends Controller
 {
     public function login(Request $request)
     {
-        if ($request->isMethod('post')) {
-            $data = $request->input();
-            $connecte=User::where(['email' => $data['email']])->first();
-            if ($connecte) {
-                $currentAdmin = User::where(['email' => $data['email']])->first();
-                if (Hash::check($data['password'], $currentAdmin->password)) {
-                        session(['id' => $currentAdmin->id,
-                        'email' => $currentAdmin->email]);
-                        return redirect('/admin/dashboard');
-                    
-            } else {
-                return redirect()->back()->with('flash_message_error', 'Email invalide! Veuillez réessayer');
-            }
+        if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
+            session(['user' => Auth::user()]);
+            return redirect('/admin/dashboard');
+        }else {
+            return redirect('/');
         }
-        else {
-            return redirect()->back()->with('flash_message_error', 'Email invalide! Veuillez réessayer');
-        }
-        }
-        return view('login');
+
+        
     }
 
     public function register(Request $request)
@@ -65,8 +54,12 @@ class FrontController extends Controller
  
     }
 
-    public function index(Request $request)
+    public function index()
     {
+        return view('login');
+    }
+
+    public function dashboard () {
         return view('layouts.layout_design');
     }
 

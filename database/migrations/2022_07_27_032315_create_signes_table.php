@@ -21,6 +21,10 @@ return new class extends Migration
             $table->String('OMI');
             $table->String('Etat_physique');
             $table->String('Diagnostic');
+            $table->unsignedbigInteger('secretaireId');
+            $table->foreign ('secretaireId')->references('id')->on('secretaire');
+            $table->unsignedbigInteger('Patient_id');
+            $table->foreign ('Patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
     }

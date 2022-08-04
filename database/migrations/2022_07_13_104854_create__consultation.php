@@ -22,7 +22,10 @@ return new class extends Migration
             $table->foreign('Medecin_id')->references('id')->on('medecins');
             $table->unsignedbigInteger('TypeConsultation_id');
             $table->foreign ('TypeConsultation_id')->references('id')->on('typeConsultation');
+            $table->unsignedbigInteger('Patient_id');
+            $table->foreign ('Patient_id')->references('id')->on('patients');
             $table->timestamps();
+            
 
         });
     }

@@ -22,7 +22,10 @@ return new class extends Migration
             $table->Date('Dte_du_prochain_RDV');
             $table->unsignedbigInteger('Patient_id');
             $table->foreign ('Patient_id')->references('id')->on ('patients');
+            $table->unsignedbigInteger('Medecin_id');
+            $table->foreign ('Medecin_id')->references('id')->on ('medecins');
             $table->timestamps();
+            
 
         });
     }

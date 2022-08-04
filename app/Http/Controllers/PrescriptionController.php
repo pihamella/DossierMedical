@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Prescription;
 use App\Http\Requests\StorePrescriptionRequest;
 use App\Http\Requests\UpdatePrescriptionRequest;
+use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
 {
@@ -25,7 +26,7 @@ class PrescriptionController extends Controller
      */
     public function create()
     {
-        //
+        return view('prescription');
     }
 
     /**
@@ -34,9 +35,27 @@ class PrescriptionController extends Controller
      * @param  \App\Http\Requests\StorePrescriptionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePrescriptionRequest $request)
+    public function store(Resquest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'DatePrescrition' => 'required|string',
+            'Note' => 'required|string',
+            'medecin' => 'required|string',
+            'patient' => 'required|string',
+            
+        ]);
+        $prescription = Prescription::create([
+            'DatePrescrition' => $validatedData['DatePrescrition'],
+            'Note' => $validatedData['Note'],
+            'medecin_id' => $validatedData['medecin'],
+            'patient_id' => $validatedData['patient'],
+        ]);
+        if ($prescription) {
+            return redirect('/prescription/creer')->with('message', 'Vous avez ajouté une nouvelle prescription avec succès.');
+        }else {
+            return redirect('/prescription/creer')->with('message', 'Erreur lors de la création de la nouvelle prescription  veuillez rééssayer svp.');
+        }
+
     }
 
     /**

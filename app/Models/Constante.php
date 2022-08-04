@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Constante extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['poids', 'temperature', 'taille','tension','note','secretaireId','patient_id'];
+
 }

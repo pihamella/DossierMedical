@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('medecins', function (Blueprint $table) {
             $table->id();
-            $table->String('NomMedecin');
-            $table->String('PrenomMedecin');
-            $table->String('TelMedecin');
-            $table->String('Specialite');
-            $table->String('Service');
+            $table->String('nom_medecin');
+            $table->String('prenom_medecin');
+            $table->String('tel_medecin');
+            $table->String('specialite');
+            $table->String('service');
             $table->timestamps();
         });
     }

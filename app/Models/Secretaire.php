@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Prescription extends Model
+class Secretaire extends Authenticatable
 {
     use HasFactory;
-    protected $primaryKey = 'id';
 
-    protected $fillable = ['DatePrescrition', 'Note', 'Medecin_id', 'patient_id'];
-
+    protected $table = 'secretaire';
 }

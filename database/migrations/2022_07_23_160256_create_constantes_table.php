@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('constantes', function (Blueprint $table) {
             $table->id();
             $table->String('poids');
-            $table->Date('temperature');
+            $table->String('temperature');
             $table->String('taille');
             $table->String('tension');
-            $table->String('note');
+            $table->text('note');
             $table->unsignedbigInteger('secretaireId');
             $table->foreign ('secretaireId')->references('id')->on('secretaire');
+            $table->unsignedbigInteger('patient_id')->nullable();
+            $table->foreign ('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
     }

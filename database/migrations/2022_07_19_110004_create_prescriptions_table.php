@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
             $table->Date('DatePrescrition');
-            $table->String('Nom_Patient');
-            $table->String('Prenom_Patient');
             $table->String('Note');
             $table->unsignedbigInteger('Medecin_id');
             $table->foreign ('Medecin_id')->references('id')->on('medecins');
+            $table->unsignedbigInteger('patient_id');
+            $table->foreign ('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
     }

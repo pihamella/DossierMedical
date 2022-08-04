@@ -20,6 +20,11 @@ return new class extends Migration
             $table->String('Resultat');
             $table->String('Image');
             $table->String('Chirugien');
+            $table->unsignedbigInteger('Medecin_id')->nullable();
+            $table->foreign ('Medecin_id')->references('id')->on('medecins');
+            $table->unsignedbigInteger('Patient_id')->nullable();
+            $table->foreign ('Patient_id')->references('id')->on('patients');
+        
             $table->timestamps();
         });
     }

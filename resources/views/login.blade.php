@@ -43,7 +43,7 @@
               </div>
               <h4>Bienvenue! Heureux de vous revoir...</h4>
               <h6 class="font-weight-light">Connectez vous.</h6>
-              <form class="pt-3"method="post" action="{{url('/')}}">
+              <form class="pt-3"method="post" action="{{url('/login')}}">
                   {{ csrf_field() }}
                 <div class="form-group">
                   <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
