@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Prescription;
 use App\Http\Requests\StorePrescriptionRequest;
 use App\Http\Requests\UpdatePrescriptionRequest;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
@@ -16,7 +17,21 @@ class PrescriptionController extends Controller
      */
     public function index()
     {
-        //
+        {
+            return view('prescription.index', [
+                'prescription' => Prescription::all()->map(function($prescription) {
+                    return [
+                        'nom_patient' => Patient::where('id', $prescription->patient_id)->first()->nom_patient,
+                        'prenom_patient' => Patient::where('id', $prescription->patient_id)->first()->prenom_patient,
+                        'nom_de_formation' => $prescription->nom_de_formation,
+                        'date_prescrition' => $prescription->date_prescrition,
+                        'note' => $prescription->note,
+                        'id' => $prescription->id,
+                    ];
+                }),
+                
+            ]);
+        }
     }
 
     /**
@@ -25,8 +40,10 @@ class PrescriptionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('prescription');
+    { 
+        return view('prescription.create', [
+        'patients' => Patient::all()
+      ]);
     }
 
     /**
@@ -35,17 +52,20 @@ class PrescriptionController extends Controller
      * @param  \App\Http\Requests\StorePrescriptionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Resquest $request)
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'DatePrescrition' => 'required|string',
-            'Note' => 'required|string',
+            'nom_de_formation' => 'required|string',
+            'date_prescrition' => 'required|string',
+            'note' => 'required|string',
             'medecin' => 'required|string',
             'patient' => 'required|string',
             
         ]);
-        $prescription = Prescription::create([
-            'DatePrescrition' => $validatedData['DatePrescrition'],
+        
+         Prescription::create([
+            'nom_de_formation' => $validatedData['nom_de_formation'],
+            'date_prescrition' => $validatedData['date_prescrition'],
             'Note' => $validatedData['Note'],
             'medecin_id' => $validatedData['medecin'],
             'patient_id' => $validatedData['patient'],
@@ -77,7 +97,7 @@ class PrescriptionController extends Controller
      */
     public function edit(Prescription $prescription)
     {
-        //
+        return view('prescription.edit', compact('prescription'));
     }
 
     /**
@@ -87,9 +107,30 @@ class PrescriptionController extends Controller
      * @param  \App\Models\Prescription  $prescription
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePrescriptionRequest $request, Prescription $prescription)
+    public function update(Request $request, Prescription $prescription)
     {
-        //
+        $validatedData = $request->validate([
+            'nom_de_formation' => 'required|string',
+            'date_prescrition' => 'required|string',
+            'Note' => 'required|string',
+            'medecin' => 'required|string',
+            'patient' => 'required|string',
+
+        ]);
+
+        $prescription->update([
+            'nom_de_formation' => $validatedData['nom_de_formation'],
+            'date_prescrition' => $validatedData['date_prescrition'],
+            'Note' => $validatedData['Note'],
+            'medecin_id' => $validatedData['medecin'],
+            'patient_id' => $validatedData['patient'],
+        ]);
+
+        if ($prescription) {
+            return redirect('/prescription')->with('message', 'modification effectuée avec succès.');
+        } else {
+            return redirect(route("prescription.edit", $prescription))->with('message', 'Erreur lors de la modification veuillez rééssayer svp.');
+        }
     }
 
     /**
@@ -100,6 +141,9 @@ class PrescriptionController extends Controller
      */
     public function destroy(Prescription $prescription)
     {
-        //
+        $prescription->delete();
+        
+        return redirect('/prescription')->with('message', 'Suppression effectuée avec succès.');
+    
     }
 }

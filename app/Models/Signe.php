@@ -10,6 +10,6 @@ class Signe extends Model
     use HasFactory;
     protected $primaryKey = 'id';
 
-    protected $fillable = ['Etat_general', 'Etat_de_Concience', 'Etat_de_conjontive', 'OMI', 'Etat_physique', 'Diagnostic', 'secretaireId ', 'Patient_id' ];
+    protected $fillable = ['etat_general', 'etat_de_Concience', 'etat_de_conjontive', 'OMI', 'etat_physique', 'diagnostic', 'secretaireId', 'Patient_id' ];
 
 }

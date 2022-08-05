@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->Date('DatePrescrition');
-            $table->String('Note');
+            $table->String('nom_de_formation');
+            $table->Date('date_prescrition');
+            $table->String('note');
             $table->unsignedbigInteger('Medecin_id');
             $table->foreign ('Medecin_id')->references('id')->on('medecins');
             $table->unsignedbigInteger('patient_id');

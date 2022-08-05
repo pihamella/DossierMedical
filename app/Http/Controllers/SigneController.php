@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Signe;
 use App\Models\Secretaire;
-use App\Http\Requests\StoreSigneRequest;
-use App\Http\Requests\UpdateSigneRequest;
+
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -23,14 +22,14 @@ class SigneController extends Controller
             return view('signe.index', [
                 'signe' => Signe::all()->map(function($signe) {
                     return [
-                        'nom_patient' => Patient::where('id', $signe->patient_id)->first()->nom_patient,
-                        'prenom_patient' => Patient::where('id', $signe->patient_id)->first()->prenom_patient,
-                        'Etat_general' => $signe->Etat_general,
-                        'Etat_de_Concience' => $signe->Etat_de_Concience,
-                        'Etat_de_conjontive' => $signe->Etat_de_conjontive,
+                        'nom_patient' => Patient::where('id', $signe->Patient_id)->first()->nom_patient,
+                        'prenom_patient' => Patient::where('id', $signe->Patient_id)->first()->prenom_patient,
+                        'etat_general' => $signe->etat_general,
+                        'etat_de_Concience' => $signe->etat_de_Concience,
+                        'etat_de_conjontive' => $signe->etat_de_conjontive,
                         'OMI' => $signe->OMI,
-                        'Etat_physique' => $signe->Etat_physique,
-                        'Diagnostic' => $signe->Diagnostic,
+                        'etat_physique' => $signe->etat_physique,
+                        'diagnostic' => $signe->diagnostic,
                         'id' => $signe->id,
                     ];
                 }),
@@ -50,39 +49,43 @@ class SigneController extends Controller
             'patients' => Patient::all()
         ]);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreSigneRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'Etat_general' => 'required|string',
-            'Etat_de_Concience' => 'required|string',
-            'Etat_de_conjontive' => 'required|string',
+        // dd($request);
+        $validateData = $request->validate([
+            'etat_general' => 'required|string',
+            'etat_de_Concience' => 'required|string',
+            'etat_de_conjontive' => 'required|string',
             'OMI' => 'required|string',
-            'Etat_physique' => 'required|string',
-            'Diagnostic' => 'required|string',
+            'etat_physique' => 'required|string',
+            'diagnostic' => 'required|string',
             'patient' => 'required|string',
+            'secretaire' => 'required|string',
         ]);
 
+        
+        
         $signe = Signe::create([
-            'Etat_general' => $validatedData['Etat_general'],
-            'Etat_de_Concience' => $validatedData['Etat_de_Concience'],
-            'Etat_de_conjontive' => $validatedData['Etat_de_conjontive'],
-            'OMI' => $validatedData['OMI'],
-            'Etat_physique' => $validatedData['Etat_physique'],
-            'Diagnostic' => $validatedData['Diagnostic'],
-            'patient_id' => $validatedData['patient'],
+            'etat_general' => $validateData['etat_general'],
+            'etat_de_Concience' => $request['etat_de_Concience'],
+            'etat_de_conjontive' => $request['etat_de_conjontive'],
+            'OMI' => $request['OMI'],
+            'etat_physique' => $request['etat_physique'],
+            'diagnostic' => $request['diagnostic'],
+            'Patient_id' => $request['patient'],
             'secretaireId' =>  Auth()->user()->role === 'secretaire' ? Secretaire::where('id', Auth()->user()->secretaire_id)->first()->id : null
         ]);
+
+        
+        
         if ($signe) {
             return redirect('/signe/creer')->with('message', 'Vous avez ajouté un nouveau signe avec succès.');
         }else {
             return redirect('/signe/creer')->with('message', 'Erreur lors de la création du nouveau signe  veuillez rééssayer svp.');
         }
+        // dd($signe);
+
     }
 
     /**
@@ -120,22 +123,22 @@ class SigneController extends Controller
     public function update(UpdateSigneRequest $request, Signe $signe)
     {
         $validatedData = $request->validate([
-            'Etat_general' => 'required|string',
-            'Etat_de_Concience' => 'required|string',
-            'Etat_de_conjontive' => 'required|string',
+            'etat_general' => 'required|string',
+            'etat_de_Concience' => 'required|string',
+            'etat_de_conjontive' => 'required|string',
             'OMI' => 'required|string',
-            'Etat_physique' => 'required|string',
-            'Diagnostic' => 'required|string',
+            'etat_physique' => 'required|string',
+            'diagnostic' => 'required|string',
             'secretaire' => 'required|string',
             'patient' => 'required|string',
         ]);
         $signe->update([
-            'Etat_general' => $validatedData['Etat_general'],
-            'Etat_de_Concience' => $validatedData['Etat_de_Concience'],
-            'Etat_de_conjontive' => $validatedData['Etat_de_conjontive'],
+            'etat_general' => $validatedData['etat_general'],
+            'etat_de_Concience' => $validatedData['etat_de_Concience'],
+            'etat_de_conjontive' => $validatedData['etat_de_conjontive'],
             'OMI' => $validatedData['OMI'],
-            'Etat_physique' => $validatedData['Etat_physique'],
-            'Diagnostic' => $validatedData['Diagnostic'],
+            'etat_physique' => $validatedData['etat_physique'],
+            'diagnostic' => $validatedData['diagnostic'],
             'patient_id' => $validatedData['patient'],
             'secretaire_id' => $validatedData['secretaire'],
         ]);

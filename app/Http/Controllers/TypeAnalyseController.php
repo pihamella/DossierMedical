@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\medecin;
-use Illuminate\Http\Request;
+use App\Models\type_analyse;
+use App\Http\Requests\Storetype_analyseRequest;
+use App\Http\Requests\Updatetype_analyseRequest;
 
-class MedecinController extends Controller
+class TypeAnalyseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,10 +31,10 @@ class MedecinController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoremedecinRequest  $request
+     * @param  \App\Http\Requests\Storetype_analyseRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoremedecinRequest $request)
+    public function store(Storetype_analyseRequest $request)
     {
         //
     }
@@ -41,10 +42,10 @@ class MedecinController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\medecin  $medecin
+     * @param  \App\Models\type_analyse  $type_analyse
      * @return \Illuminate\Http\Response
      */
-    public function show(medecin $medecin)
+    public function show(type_analyse $type_analyse)
     {
         //
     }
@@ -52,10 +53,10 @@ class MedecinController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\medecin  $medecin
+     * @param  \App\Models\type_analyse  $type_analyse
      * @return \Illuminate\Http\Response
      */
-    public function edit(medecin $medecin)
+    public function edit(type_analyse $type_analyse)
     {
         //
     }
@@ -63,11 +64,11 @@ class MedecinController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatemedecinRequest  $request
-     * @param  \App\Models\medecin  $medecin
+     * @param  \App\Http\Requests\Updatetype_analyseRequest  $request
+     * @param  \App\Models\type_analyse  $type_analyse
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatemedecinRequest $request, medecin $medecin)
+    public function update(Updatetype_analyseRequest $request, type_analyse $type_analyse)
     {
         //
     }
@@ -75,10 +76,10 @@ class MedecinController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\medecin  $medecin
+     * @param  \App\Models\type_analyse  $type_analyse
      * @return \Illuminate\Http\Response
      */
-    public function destroy(medecin $medecin)
+    public function destroy(type_analyse $type_analyse)
     {
         //
     }

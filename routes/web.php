@@ -55,11 +55,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/type_consultation', [TypeconsultationController::class, 'index'])->name('type_consultation.index');
     Route::get('/type_consultation/creer', [TypeconsultationController::class, 'create'])->name('type_consultation.create');
     Route::post('/type_consultation/store', [TypeconsultationController::class, 'store'])->name('type_consultation.store');
-     
     Route::get('/type_consultation/edit/{type_consultation}', [TypeconsultationController::class, 'edit'])->name('type_consultation.edit');
     Route::post('/type_consultation/update/{type_consultation}', [TypeconsultationController::class, 'update'])->name('type_consultation.update');
     Route::delete('/type_consultation/delete/{type_consultation}', [TypeconsultationController::class, 'destroy'])->name('type_consultation.delete');
 
+    // constantes
     Route::get('/constantes', [ConstanteController::class, 'index'])->name('constante.index');
     Route::get('/constante/creer', [ConstanteController::class, 'create'])->name('constante.create');
     Route::post('/constante/store', [ConstanteController::class, 'store'])->name('constante.store');
@@ -68,7 +68,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/constante/delete/{constante}', [ConstanteController::class, 'destroy'])->name('constante.delete');
 
 
-
+ // signes
     Route::get('/signes', [SigneController::class, 'index'])->name('signe.index');
     Route::get('/signe/creer', [SigneController::class, 'create'])->name('signe.create');
     Route::post('/signe/store', [SigneController::class, 'store'])->name('signe.store');
@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/signe/delete/{signe}', [SigneController::class, 'destroy'])->name('signe.delete');
 
 
-
+// prescriptions
     Route::get('/prescriptions', [PrescriptionController::class, 'index'])->name('prescription.index');
     Route::get('/prescription/creer', [PrescriptionController::class, 'create'])->name('prescription.create');
     Route::post('/prescription/store', [PrescriptionController::class, 'store'])->name('prescription.store');
@@ -85,40 +85,21 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/prescription/update/{prescription}', [PrescriptionController::class, 'update'])->name('prescription.update');
     Route::delete('/prescription/delete/{prescription}', [PrescriptionController::class, 'destroy'])->name('prescription.delete');
 
+    // traitements
+    Route::get('/traitements', [TraitementController::class, 'index'])->name('traitement.index');
+    Route::get('/traitement/creer', [TraitementController::class, 'create'])->name('traitement.create');
+    Route::post('/traitement/store', [TraitementController::class, 'store'])->name('traitement.store');
+    Route::get('/traitement/edit/{traitement}', [TraitementController::class, 'edit'])->name('traitement.edit');
+    Route::post('/traitement/update/{traitement}', [TraitementController::class, 'update'])->name('traitement.update');
+    Route::delete('/traitement/delete/{traitement}', [TraitementController::class, 'destroy'])->name('traitement.delete'); 
+
+    // analyses
+    Route::get('/analyses', [AnalyseController::class, 'index'])->name('analyse.index');
+    Route::get('/analyse/creer', [AnalyseController::class, 'create'])->name('analyse.create');
+    Route::post('/analyse/store', [AnalyseController::class, 'store'])->name('analyse.store');
+    Route::get('/analyse/edit/{analyse}', [AnalyseController::class, 'edit'])->name('analyse.edit');
+    Route::post('/analyse/update/{analyse}', [AnalyseController::class, 'update'])->name('analyse.update');
+    Route::delete('/analyse/delete/{analyse}', [AnalyseController::class, 'destroy'])->name('analyse.delete'); 
+
 });
 
-
-Route::get ('/inscription', function(){
-
-return view ('welcome');
-});
-
-// Route::get ('/patient', function(){
-
-//     return view ('patient');
-//     });
-
-//     Route::get ('/analyse', function(){
-
-//         return view ('analyse');
-//         });
-
-//      Route::get ('/constante', function(){
-
-//             return view ('constante');
-//             });
-
-//  Route::get ('/consultation', function(){
-
-//  return view ('consultation');
-//  });
-//                 Route::get ('/signe', function(){
-
-//                     return view ('signe');
-//                     });
-//                     Route::get ('/traitement', function(){
-
-//                         return view ('traitement');
-//                         });
-                    
-    

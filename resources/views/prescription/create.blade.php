@@ -9,7 +9,7 @@
       </button>
     </div>
   @endif
-  <form class="forms-sample" method="post" action="{{url('/prescription/store')}}">
+  <form class="forms-sample" method="post" action="{{ route('prescription.store') }}">
       {{ csrf_field() }}
       <div class="col-12 grid-margin stretch-card">
         <div class="card">
@@ -18,31 +18,36 @@
             <p class="card-description">
               Ajouter une ordonnance médicale
             </p>
-            <div class="forms-sample" method="post" action="{{url('/prescription/store')}}">
-              {{ csrf_field() }}
+            <div class="forms-sample">
+
               <div class="form-group">
-                <label for="DatePrescrition">DatePrescrition</label>
-                <input type="date" class="form-control" name="DatePrescrition" id="DatePrescrition" placeholder="DatePrescrition">
-                @error('DatePrescrition') <div class="error">{{ $message }}</div> @enderror
+                <label for="patient">Patient</label>
+                  <select name="patient" class="form-control" id="patient">
+                    @foreach ($patients as $patient)
+                    <option value="{{$patient->id}}">{{$patient->nom_patient}} {{$patient->prenom_patient}}</option>
+                    @endforeach
+                    
+                  </select>
+                  @error('patient') <div class="error">{{ $message }}</div> @enderror
               </div>
               
               <div class="form-group">
-                <label for="medecin">Identité du prescripteur</label>
-                <input type="text" class="form-control" name="medecin" id="medecin" placeholder="medecin">
-                @error('medecin') <div class="error">{{ $message }}</div> @enderror
+                <label for="nom_de_formation">nom_de_formation</label>
+                <input type="text" class="form-control" name="nom_de_formation" id="nom_de_formation" placeholder="nom_de_formation">
+                @error('nom_de_formation') <div class="error">{{ $message }}</div> @enderror
               </div>
               <div class="form-group">
-                <label for="patient">Patient</label>
-                <input type="text" class="form-control" name="patient" id="patient" placeholder="patient">
-                @error('patient') <div class="error">{{ $message }}</div> @enderror
+                <label for="date_prescrition">date_prescrition</label>
+                <input type="date" class="form-control" name="date_prescrition" id="date_prescrition" placeholder="date_prescrition">
+                @error('date_prescrition') <div class="error">{{ $message }}</div> @enderror
               </div>
               <div class="form-group">
-                <label for="Note">Note</label>
-                <input type="text" class="form-control" name="Note" id="Note" placeholder="Note">
-                @error('Note') <div class="error">{{ $message }}</div> @enderror
+                <label for="note">Note</label>
+                <input type="text" class="form-control" name="note" id="note" placeholder="note">
+                @error('note') <div class="error">{{ $message }}</div> @enderror
               </div>
-            
-
+              
+    
               <button type="submit" class="btn btn-primary mr-2">Valider</button>
             </div>
 

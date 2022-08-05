@@ -66,6 +66,50 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#analyse" aria-expanded="false" aria-controls="analyse">
+              <i class="ti-user menu-icon"></i>
+              <span class="menu-title"> Analyse </span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="analyse">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('analyse.create')}}"> Ajouter </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('analyse.index')}}">Liste</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#prescription" aria-expanded="false" aria-controls="prescription">
+              <i class="ti-user menu-icon"></i>
+              <span class="menu-title"> Prescription </span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="prescription">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('prescription.create')}}"> Ajouter </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('prescription.index')}}">Liste</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#traitement" aria-expanded="false" aria-controls="traitement">
+              <i class="ti-user menu-icon"></i>
+              <span class="menu-title"> Traitement </span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="traitement">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('traitement.create')}}"> Ajouter </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('traitement.index')}}">Liste</a></li>
+              </ul>
+            </div>
+          </li>
+          
+
 
         </ul>
       </nav>

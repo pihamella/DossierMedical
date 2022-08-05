@@ -55,23 +55,23 @@
                         </td>
                     
                         <td>
-                            {{$signe['Etat_general']}}
+                            {{$signe['etat_general']}}
                         </td>
                         <td>
-                            {{$signe['Etat_de_Concience']}}
+                            {{$signe['etat_de_Concience']}}
                         </td>
                         <td>
-                            {{$signe['Etat_de_conjontive']}}
+                            {{$signe['etat_de_conjontive']}}
                         </td>
                         <td>
                             {{$signe['OMI']}}
                         </td>
         
                         <td>
-                            {{$signe['Etat_physique']}}
+                            {{$signe['etat_physique']}}
                         </td>
                         <td>
-                            {{$signe[' Diagnostic']}}
+                            {{$signe['diagnostic']}}
                         </td>
         
                         <td class="template-demo">

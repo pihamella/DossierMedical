@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('traitements', function (Blueprint $table) {
             $table->id();
-            $table->Date('Debut_traitement');
-            $table->Date('Fin_traitement');
-            $table->double('Prix');
-            $table->String('Note');
-            $table->Date('Dte_du_prochain_RDV');
+            $table->Date('debut_traitement');
+            $table->Date('fin_traitement');
+            $table->double('prix');
+            $table->String('note');
+            $table->Date('date_du_prochain_RDV');
             $table->unsignedbigInteger('Patient_id');
             $table->foreign ('Patient_id')->references('id')->on ('patients');
             $table->unsignedbigInteger('Medecin_id');

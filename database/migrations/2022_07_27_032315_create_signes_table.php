@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('signes', function (Blueprint $table) {
             $table->id();
-            $table->String('Etat_general');
-            $table->String('Etat_de_Concience');
-            $table->String('Etat_de_conjontive');
+            $table->String('etat_general');
+            $table->String('etat_de_Concience');
+            $table->String('etat_de_conjontive');
             $table->String('OMI');
-            $table->String('Etat_physique');
-            $table->String('Diagnostic');
+            $table->String('etat_physique');
+            $table->String('diagnostic');
             $table->unsignedbigInteger('secretaireId');
             $table->foreign ('secretaireId')->references('id')->on('secretaire');
             $table->unsignedbigInteger('Patient_id');

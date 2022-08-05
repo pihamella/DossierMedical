@@ -20,18 +20,17 @@
             <thead>
               <tr>
                 <th>
-                  Date prescription
+                  Patient
+                </th>
+                <th>
+                  Nom_de_formation
+                </th>
+                <th>
+                  Date_prescrition
                 </th>
                 <th>
                   Note
                 </th>
-                <th>
-                    Nom du prescripteur
-                </th>
-                <th>
-                    Nom du Patient
-                </th>
-
                 <th>
                   Actions
               </th>
@@ -43,16 +42,13 @@
                   <tr>
                     
                     <td>
-                        {{$prescription->nom_patient}}
+                        {{$prescription->nom_de_formation}}
                     </td>
                     <td>
-                        {{$prescription->prenom_patient}}
+                        {{$prescription->date_prescrition}}
                     </td>
                     <td>
-                        {{$prescription->reference}}
-                    </td>
-                    <td>
-                        {{$prescription->date_naissance}}
+                        {{$prescription->note}}
                     </td>
     
                     
